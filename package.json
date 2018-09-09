@@ -1,0 +1,28 @@
+{
+  "name": "langformy",
+  "version": "0.1.0",
+  "description": "UI interface for langform",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Walid-Shouman/Langformy.git"
+  },
+  "keywords": [
+    "structure",
+    "ui",
+    "langform",
+    "python",
+    "c++",
+    "doxygen",
+    "xml"
+  ],
+  "author": "Walid Shouman",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/Walid-Shouman/Langformy/issues"
+  },
+  "homepage": "https://github.com/Walid-Shouman/Langformy#readme"
+}
