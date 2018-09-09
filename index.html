@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Langformy</title>
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <!-- TODO: use when webpack is enabled. -->
+    <!-- <script src="dist/app.bundle.js"></script> -->
+    <!-- App.js is where the functional app code exists -->
+    <script src="app/app.js"></script>
+
+    <h3>Set Langform Settings and Run:</h3>
+    <br>
+    <div class="row">
+      <div class="five columns">
+        <label for="classXMLDir">Class XML Dir</label>
+        <input class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml" id="class_xml_dir" type="text">
+      </div>
+      <div class="two columns">
+        <label for="run langform" class="invisible"></label>
+        <input class="button-primary" value="run" id="run_langform" type="button">
+      </div>
+    </div>
+  </body>
+</html>

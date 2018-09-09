@@ -4,6 +4,7 @@
   "description": "UI interface for langform",
   "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/Walid-Shouman/Langformy/issues"
   },
-  "homepage": "https://github.com/Walid-Shouman/Langformy#readme"
+  "homepage": "https://github.com/Walid-Shouman/Langformy#readme",
+  "devDependencies": {
+    "electron": "^2.0.8"
+  }
 }
