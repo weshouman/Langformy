@@ -15,10 +15,30 @@
     <h3>Set Langform Settings and Run:</h3>
     <br>
     <div class="row">
-      <div class="five columns">
+      <div class="setting">
         <label for="classXMLDir">Class XML Dir</label>
-        <input class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml" id="class_xml_dir" type="text">
+        <input type="checkbox" id="class_xml_dir_check" checked><label for="class_xml_dir_label"> Overwrite default </label>
+        <input type="text" id="class_xml_dir_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml" value="/home/walid/shared_on_wifi/xml/">
       </div>
+
+      <div class="setting">
+        <label for="classXMLDir">Class XML</label>
+        <input type="checkbox" id="class_xml_check" checked><label for="class_xml_label"> Overwrite default </label>
+        <input type="text" id="class_xml_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml/classEntry.xml" value="/home/walid/shared_on_wifi/classEntry.xml">
+      </div>
+
+      <div class="setting">
+        <label for="classXMLDir">Namespace placeholder</label>
+        <input type="checkbox" id="namespace_placeholder_check" checked><label for="namespace_placeholder_label"> Overwrite default </label>
+        <input type="text" id="namespace_placeholder_text" class="u-full-width" placeholder="eg: __ns__" value="__ns__">
+      </div>
+
+      <div class="setting">
+        <label for="classXMLDir">Output Directory</label>
+        <input type="checkbox" id="output_dir_check" checked><label for="output_dir_label"> Overwrite default </label>
+        <input type="text" id="output_dir_text" class="u-full-width" placeholder="eg: generated/" value="generated/">
+      </div>
+
       <div class="two columns">
         <label for="run langform" class="invisible"></label>
         <input class="button-primary" value="run" id="run_langform" type="button">
