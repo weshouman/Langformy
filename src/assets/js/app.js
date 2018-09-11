@@ -1,5 +1,7 @@
 'use strict'
 
+console.log("hello there!");
+
 function getClassXMLDir(){
   // // Use a real directory
   // var classXMLDirValue = "'/home/walid/shared_on_wifi/xml/'"
@@ -149,3 +151,5 @@ function main() {
     attachDOMListeners();
   });
 };
+
+main();

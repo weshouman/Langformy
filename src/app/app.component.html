@@ -1,0 +1,72 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  {{title}} is still in alpha development ...
+</div>
+<h3>Set Settings and Run:</h3>
+<div id="app"></div>
+<!-- TODO: use when webpack is enabled. -->
+<!-- <script src="dist/app.bundle.js"></script> -->
+<!-- App.js is where the functional app code exists -->
+<!-- <script src="../../app/app.js"></script> -->
+
+<!-- <script src="./app.js"></script> -->
+
+abc
+  <script>
+    console.log("hello there");
+    console.log(`${__dirname}`);
+    alert( 'Hello, world !' );
+    alert( `${__dirname}` );
+  </script>
+<br>
+<ul>
+  <li>
+    <div class="setting">
+      <label for="classXMLDir">Class XML Dir</label>
+      <input type="checkbox" id="class_xml_dir_check" checked><label for="class_xml_dir_label"> Overwrite default </label>
+      <input type="text" id="class_xml_dir_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml" value="/home/walid/shared_on_wifi/xml/">
+    </div>
+  </li>
+  <li>
+    <div class="setting">
+      <label for="classXML">Class XML</label>
+      <input type="checkbox" id="class_xml_check" checked><label for="class_xml_label"> Overwrite default </label>
+      <input type="text" id="class_xml_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml/classEntry.xml" value="/home/walid/shared_on_wifi/classEntry.xml">
+    </div>
+  </li>
+  <li>
+    <div class="setting">
+      <label for="namespacePlaceholder">Namespace placeholder</label>
+      <input type="checkbox" id="namespace_placeholder_check" checked><label for="namespace_placeholder_label"> Overwrite default </label>
+      <input type="text" id="namespace_placeholder_text" class="u-full-width" placeholder="eg: __ns__" value="__ns__">
+    </div>
+  </li>
+  <li>
+    <div class="setting">
+      <label for="classXMLDir">Output Directory</label>
+      <input type="checkbox" id="output_dir_check" checked><label for="output_dir_label"> Overwrite default </label>
+      <input type="text" id="output_dir_text" class="u-full-width" placeholder="eg: generated/" value="generated/">
+    </div>
+  </li>
+</ul>
+<div class="two columns">
+  <label for="run langform" class="invisible"></label>
+  <input class="button-primary" value="run" id="run_langform" type="button">
+</div>
+
+<h3>Links</h3>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
