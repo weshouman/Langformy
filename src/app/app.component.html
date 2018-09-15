@@ -15,20 +15,21 @@
 <!-- <script src="./app.js"></script> -->
 
 abc
-  <script>
+<!--   <script>
     console.log("hello there");
     console.log(`${__dirname}`);
     alert( 'Hello, world !' );
     alert( `${__dirname}` );
-  </script>
+  </script> -->
 <br>
 <ul>
   <li>
-    <div class="setting">
-      <label for="classXMLDir">Class XML Dir</label>
-      <input type="checkbox" id="class_xml_dir_check" checked><label for="class_xml_dir_label"> Overwrite default </label>
-      <input type="text" id="class_xml_dir_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml" value="/home/walid/shared_on_wifi/xml/">
-    </div>
+    <section class="example-section">
+      <mat-checkbox type="checkbox" id="class_xml_dir_check" checked>Overwrite Class XML Dir</mat-checkbox>
+    </section>
+    <mat-form-field class="setting">
+      <input matInput id="class_xml_dir_text" placeholder="Class XML Dir" value="/home/walid/shared_on_wifi/xml/">
+    </mat-form-field>
   </li>
   <li>
     <div class="setting">
