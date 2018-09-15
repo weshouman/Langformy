@@ -11,11 +11,11 @@ function getClassXMLDir(){
 
   var classXMLDir = "";
 
-  var checkboxValue = document.getElementById('class_xml_dir_check').checked;
+  var checkboxValue = document.getElementById('input_dir_check').checked;
   if (checkboxValue == true) {
     var classXMLDirValue;
 
-    var textValue = document.getElementById('class_xml_dir_text').value;
+    var textValue = document.getElementById('input_dir').value;
     if (textValue == '') {
       classXMLDirValue = "null";
     }
@@ -32,11 +32,11 @@ function getClassXMLDir(){
 function getClassXML(){
   var classXML = "";
 
-  var checkboxValue = document.getElementById('class_xml_check').checked;
+  var checkboxValue = document.getElementById('input_file_check').checked;
   if (checkboxValue == true) {
     var classXMLValue;
 
-    var textValue = document.getElementById('class_xml_text').value;
+    var textValue = document.getElementById('input_file').value;
     if (textValue == '') {
       classXMLValue = "null";
     }
@@ -57,7 +57,7 @@ function getNamespacePlaceholder(){
   if (checkboxValue == true) {
     var namespacePlaceholderValue;
 
-    var textValue = document.getElementById('namespace_placeholder_text').value;
+    var textValue = document.getElementById('namespace_placeholder').value;
     if (textValue == '') {
       namespacePlaceholderValue = "null";
     }
@@ -78,7 +78,7 @@ function getOutputDir(){
   if (checkboxValue == true) {
     var outputDirValue;
 
-    var textValue = document.getElementById('output_dir_text').value;
+    var textValue = document.getElementById('output_dir').value;
     if (textValue == '') {
       outputDirValue = "null";
     }

@@ -5,7 +5,10 @@
   </h1>
   {{title}} is still in alpha development ...
 </div>
-<h3>Set Settings and Run:</h3>
+
+<!-- <section class="mat-typography"> -->
+  <h2 class="mat-h2">Set Settings and Run:</h2>
+<!-- </section> -->
 <div id="app"></div>
 <!-- TODO: use when webpack is enabled. -->
 <!-- <script src="dist/app.bundle.js"></script> -->
@@ -14,7 +17,7 @@
 
 <!-- <script src="./app.js"></script> -->
 
-abc
+<!-- abc -->
 <!--   <script>
     console.log("hello there");
     console.log(`${__dirname}`);
@@ -22,43 +25,55 @@ abc
     alert( `${__dirname}` );
   </script> -->
 <br>
-<ul>
-  <li>
-    <section class="example-section">
-      <mat-checkbox type="checkbox" id="class_xml_dir_check" checked>Overwrite Class XML Dir</mat-checkbox>
-    </section>
+<div class="settings-container">
+  <!-- Input Dir -->
+  <section class="input-dir-section">
+    <mat-checkbox class="setting-check" matTooltip="Overwrite Input Dir" type="checkbox" id="input_dir_check" [(ngModel)]="inputDirEnabled" MatCheckboxChange></mat-checkbox>
+
     <mat-form-field class="setting">
-      <input matInput id="class_xml_dir_text" placeholder="Class XML Dir" value="/home/walid/shared_on_wifi/xml/">
+      <input matInput id="input_dir" placeholder="Input Dir" value="/home/walid/shared_on_wifi/xml/" [disabled]="!inputDirEnabled">
+      <mat-hint align="start">Dir where XML files exist: eg: /home/walid/shared_on_wifi/xml/</mat-hint>
     </mat-form-field>
-  </li>
-  <li>
-    <div class="setting">
-      <label for="classXML">Class XML</label>
-      <input type="checkbox" id="class_xml_check" checked><label for="class_xml_label"> Overwrite default </label>
-      <input type="text" id="class_xml_text" class="u-full-width" placeholder="eg: /home/walid/tutorial/docs/xml/classEntry.xml" value="/home/walid/shared_on_wifi/classEntry.xml">
-    </div>
-  </li>
-  <li>
-    <div class="setting">
-      <label for="namespacePlaceholder">Namespace placeholder</label>
-      <input type="checkbox" id="namespace_placeholder_check" checked><label for="namespace_placeholder_label"> Overwrite default </label>
-      <input type="text" id="namespace_placeholder_text" class="u-full-width" placeholder="eg: __ns__" value="__ns__">
-    </div>
-  </li>
-  <li>
-    <div class="setting">
-      <label for="classXMLDir">Output Directory</label>
-      <input type="checkbox" id="output_dir_check" checked><label for="output_dir_label"> Overwrite default </label>
-      <input type="text" id="output_dir_text" class="u-full-width" placeholder="eg: generated/" value="generated/">
-    </div>
-  </li>
-</ul>
-<div class="two columns">
-  <label for="run langform" class="invisible"></label>
-  <input class="button-primary" value="run" id="run_langform" type="button">
+  </section>
+  <br>
+
+  <!-- Input File -->
+  <section class="input-file-section">
+    <mat-checkbox class="setting-check" matTooltip="Overwrite Input File" type="checkbox" id="input_file_check" [(ngModel)]="inputFileEnabled" [disabled]="inputDirEnabled"></mat-checkbox>
+
+    <mat-form-field class="setting">
+      <input matInput id="input_file" placeholder="Input File" value="/home/walid/shared_on_wifi/xml/classEntry.xml" [disabled]="(!inputFileEnabled)||inputDirEnabled">
+      <mat-hint align="start">XML file: eg: /home/walid/shared_on_wifi/xml/classEntry.xml</mat-hint>
+    </mat-form-field>
+  </section>
+  <br>
+
+  <!-- Namespace Placeholder -->
+  <section class="setting-checkbox">
+    <mat-checkbox class="setting-check" matTooltip="Overwrite Namespace Placeholder" type="checkbox" id="namespace_placeholder_check" [(ngModel)]="namespacePlaceholderEnabled"></mat-checkbox>
+
+    <mat-form-field class="setting">
+      <input matInput id="namespace_placeholder" placeholder="Namespace placeholder" value="__ns__" [disabled]="!namespacePlaceholderEnabled">
+      <mat-hint align="start">eg: __ns__</mat-hint>
+    </mat-form-field>
+  </section>
+  <br>
+
+  <!-- Output Directory -->
+  <section class="setting-checkbox">
+    <mat-checkbox class="setting-check" matTooltip="Overwrite Output Dir" type="checkbox" id="output_dir_check" [(ngModel)]="outputDirEnabled"></mat-checkbox>
+
+    <mat-form-field class="setting">
+      <input matInput id="output_dir" placeholder="Output Dir" value="generated/" [disabled]="!outputDirEnabled">
+      <mat-hint align="start">Dir for generated files: eg: generated/ </mat-hint>
+    </mat-form-field>
+  </section>
+  <br>
+
+  <button mat-button matTooltip="Run Langform" id="run_langform" color="primary">Run</button>
 </div>
 
-<h3>Links</h3>
+<!-- <h3>Links</h3>
 <ul>
   <li>
     <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
@@ -70,4 +85,4 @@ abc
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul>
-
+ -->

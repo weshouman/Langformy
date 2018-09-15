@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'langformy';
+
+  inputDirEnabled = true;
+  inputFileEnabled = true;
+  namespacePlaceholderEnabled = true;
+  outputDirEnabled = true;
 }

@@ -30,3 +30,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## License
 [CC0-1.0](./LICENSE).
+
+
+## Resources
+Useful resources for getting started with Electron+Angular (a project like that)
+
+### Angular Learning
+[Setting up Electron](https://angularfirebase.com/lessons/desktop-apps-with-electron-and-angular/): Introduction for setting up the system  
+
+[Setup Angular Material](https://material.angular.io/guide/getting-started): Guide to setup Material, *clean look of Angular*   
+
+[Material reference](https://material.angular.io/components/button/overview): The main material resource.  
+
+[Binding](https://stackoverflow.com/questions/43298011/angular-4-cant-bind-to-ngmodel-since-it-isnt-a-known-property-of-input): Binding variables between typescript and html isn't mentioned (however, used) in the Material reference, specially with the first checkbox example bu usage of ngModel.   
+
+[Understanding Asset pipeline](https://learn.co/lessons/what-is-the-asset-pipeline): Extra understanding for asset handling in rails (gives an intuition about the asset problems in general).  
+
+[Angular CLI assets](https://kimsereyblog.blogspot.com/2017/09/manage-assets-and-static-files-with.html).  
+
+### Example
+[Langformy](https://github.com/Walid-Shouman/langformy): An interface for [langform](https://github.com/Walid-Shouman/Langform) project.  
