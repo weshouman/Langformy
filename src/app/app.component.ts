@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { socket, Socket, types } from 'zmq';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'langformy';
+
+  my_socket: Socket = socket(types.req);
 
   inputDirEnabled = true;
   inputFileEnabled = true;
@@ -20,6 +23,21 @@ export class AppComponent {
     let settings = this.extract_settings_from_array(settingsArray);
 
     console.log(settings);
+
+    var localhost = "127.0.0.1"
+    var port = "3000"
+
+    this.my_socket.connect('tcp://' + localhost + ':' + port);
+    console.log('Worker connected to port '+ port);
+     
+    this.my_socket.on('message', function(msg){
+      console.log('work: %s', msg.toString());
+    });
+
+    setInterval(function(){
+    console.log('sending work');
+    this.my_socket.send(settings);
+  }, 500);
   }
 
   private extract_settings_from_array(settingsArray: string[]): string {
