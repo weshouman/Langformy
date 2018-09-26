@@ -50,14 +50,54 @@
             }
           }
         },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+        "build_2_serve": {
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "browserTarget": "langformy:build"
+            "customWebpackConfig": {
+              "path": "./extra_browser-webpack.config.js",
+              "replaceDuplicatePlugins": true
+            },
+            "outputPath": "dist/langformy",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
-              "browserTarget": "langformy:build:production"
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/dev-server:generic",
+          "options": {
+            "browserTarget": "langformy:build_2_serve"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "langformy:build_2_serve:production"
             }
           }
         },
