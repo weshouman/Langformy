@@ -28,6 +28,9 @@
             ],
             "styles": [
               "src/styles.css"
+            ],
+            "scripts": [
+              "src/native.js"
             ]
           },
           "configurations": {
@@ -68,7 +71,8 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -117,7 +121,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/native.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

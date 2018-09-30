@@ -9,8 +9,18 @@
 // Does the second solution allow running the browser edition?
 
 module.exports = {
+  // allow use of pre-required fs and path ie: in native.js
+  // to avoid the webpack behavior of inability to require them.
+  externals: {
+    fs: 'fs_module',
+    path: 'path_module'
+  },
+  // allow usage of __filename in dependencies ie: in bindings.js
+  // for errorStackTrace support we need also correct extraction of filename
+  // from getEvalOrigin, note: bindings specifically doesn't work with webpack 
   node: {
-    fs: 'empty'
+    __filename: true,
+    __dirname: true
   },
   devtool: 'cheap-module-eval-source'
 };

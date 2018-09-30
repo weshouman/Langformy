@@ -8,7 +8,10 @@ function createWindow () {
     width: 600,
     height: 600,
     backgroundColor: '#ffffff',
-    icon: `file://${__dirname}/dist/langformy/assets/logo.png`
+    icon: `file://${__dirname}/dist/langformy/assets/logo.png`,
+    webPreferences: {
+      nodeIntegration: true // turn it on to use node features
+    }
   })
 
 
