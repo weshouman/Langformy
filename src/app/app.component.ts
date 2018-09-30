@@ -17,9 +17,9 @@ export class AppComponent {
   outputDirEnabled = true;
 
   run_langform(): void {
-    // We shall find a way to safely fail when the app is served: "fs isn't available"!
-    window.fs.writeFileSync('sample.txt', 'my data');
-    console.log(window.fs.existsSync);
+    if (window.fs) {
+      window.fs.writeFileSync('sample2.txt', 'my data');
+    }
 
     console.log("Preparing string");
     let settingsArray = this.get_settings_array();
@@ -32,16 +32,42 @@ export class AppComponent {
     var port = "3000"
 
     // this.my_socket.connect('tcp://' + localhost + ':' + port);
-    console.log('Worker connected to port '+ port);
+    // console.log('Worker connected to port '+ port);
      
     // this.my_socket.on('message', function(msg){
     //   console.log('work: %s', msg.toString());
     // });
 
-    setInterval(function(){
-      console.log('sending work');
-      // this.my_socket.send(settings);
-    }, 500);
+    // setInterval(function(){
+    //   console.log('sending work');
+    //   // this.my_socket.send(settings);
+    // }, 500);
+
+
+    var executablePath = "/home/walid/Documents/python_shell_simple_com/zmq_client";
+    var msg = "{" + settings + "}";
+    var parameters = ["--msg="+msg, "--localhost="+localhost, "--port="+port];
+
+    if (window.fs)
+    {
+      if (window.fs.existsSync(executablePath)) {
+        window.child_process.execFile(executablePath, parameters, function(err, data) {
+          console.log("Sending settings and executing.");
+          if(err){
+            console.error(err);
+            return;
+          }
+          console.log(data.toString());
+        });
+      }
+      else {
+        console.error(executablePath + " couldn't be found.")
+      }
+    }
+    else {
+      console.error("window.fs isn't defined, are we serving in localhost?")
+    }
+
   }
 
   private extract_settings_from_array(settingsArray: string[]): string {
@@ -96,7 +122,9 @@ export class AppComponent {
 
   constructor() {
     // using fs here will result in the whole component not being render-able in the ng-server
-    // window.fs.writeFileSync('sample.txt', 'my data');
-    // console.log(window.fs.existsSync);
+    if (window.fs)
+    {
+      window.fs.writeFileSync('sample1.txt', 'my data');
+    }
   }
 }

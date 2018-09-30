@@ -13,7 +13,8 @@ module.exports = {
   // to avoid the webpack behavior of inability to require them.
   externals: {
     fs: 'fs_module',
-    path: 'path_module'
+    path: 'path_module',
+    child_process: 'child_process'
   },
   // allow usage of __filename in dependencies ie: in bindings.js
   // for errorStackTrace support we need also correct extraction of filename
