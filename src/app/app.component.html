@@ -6,26 +6,18 @@
   {{title}} is still in alpha development ...
 </div>
 
-<!-- <section class="mat-typography"> -->
   <h2 class="mat-h2">Set Settings and Run:</h2>
-<!-- </section> -->
 <div id="app"></div>
-<!-- TODO: use when webpack is enabled. -->
-<!-- <script src="dist/app.bundle.js"></script> -->
-<!-- App.js is where the functional app code exists -->
-<!-- <script src="../../app/app.js"></script> -->
-
-<!-- <script src="./app.js"></script> -->
-
-<!-- abc -->
-<!--   <script>
-    console.log("hello there");
-    console.log(`${__dirname}`);
-    alert( 'Hello, world !' );
-    alert( `${__dirname}` );
-  </script> -->
 <br>
 <div class="settings-container">
+  <round-progress [current]="current" [max]="max"></round-progress>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <!-- Input Dir -->
   <section class="input-dir-section">
     <mat-checkbox class="setting-check" matTooltip="Overwrite Input Dir" type="checkbox" id="input_dir_check" [(ngModel)]="inputDirEnabled" MatCheckboxChange></mat-checkbox>

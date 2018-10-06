@@ -8,6 +8,9 @@ import {MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTooltipModule,
 // Support variable binding between typescript and html 
 import {FormsModule} from '@angular/forms';
 
+
+import {RoundProgressModule} from 'angular-svg-round-progressbar'; 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -23,7 +26,9 @@ import {FormsModule} from '@angular/forms';
     MatTooltipModule,
     MatButtonModule,
 
-    FormsModule
+    FormsModule,
+
+    RoundProgressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

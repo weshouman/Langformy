@@ -1,6 +1,6 @@
 {
-  "name": "langformy",
-  "version": "0.2.0",
+  "name": "khallas",
+  "version": "0.1.0",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "angular-svg-round-progressbar": "^2.0.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"

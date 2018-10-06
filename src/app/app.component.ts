@@ -6,8 +6,15 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+class Module {
+  finished_functions : number = 0; 
+
+  total_functions : number = 0
+}
+
 export class AppComponent {
-  title = 'langformy';
+  title = 'khallas';
 
   // my_socket: Socket = socket(types.req);
 
@@ -15,6 +22,19 @@ export class AppComponent {
   inputFileEnabled = true;
   namespacePlaceholderEnabled = true;
   outputDirEnabled = true;
+
+  availableFiles = Module[]; 
+
+  run_khallas(): void {
+    for(var i: number = 0; i < 10; i++) {
+      this.availableFiles[i] = new Module();
+      this.availableFiles[i].finished_functions = i+1;
+      this.availableFiles[i].total_functions = i+i+3;
+    }
+
+
+  }
+
 
   run_langform(): void {
     if (window.fs) {
