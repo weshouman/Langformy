@@ -9,8 +9,24 @@
   <h2 class="mat-h2">Set Settings and Run:</h2>
 <div id="app"></div>
 <br>
+<div class="wrapper" ng-controller="repeatController">
+  <li *ngFor="let pyModule of availableFiles">
+    {{pyModule.name}}
+    <div class="progress-wrapper">
+      <div class="current" [ngStyle]="getOverlayStyle()">
+        <p>{{ pyModule.finished_functions }}/{{ pyModule.total_functions }}</p>
+        <p>{{ (pyModule.finished_functions/pyModule.total_functions * 100).toFixed(1)}}%</p>
+      </div>
+      <round-progress 
+          [current]="pyModule.finished_functions"
+          [max]="pyModule.total_functions" 
+          [radius]="80"
+          [rounded]="true"
+          ></round-progress>
+    </div>
+  </li>
+</div>
 <div class="settings-container">
-  <round-progress [current]="current" [max]="max"></round-progress>
   <br>
   <br>
   <br>

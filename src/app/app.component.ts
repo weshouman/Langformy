@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 // import { socket, Socket, types } from 'zmq';
 
+class PyModule {
+  name : string = "Untitled";
+  finished_functions : number = 0; 
+  total_functions : number = 0
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
-class Module {
-  finished_functions : number = 0; 
-
-  total_functions : number = 0
-}
-
+// Hint: don't define classes between the @Component and the class
 export class AppComponent {
   title = 'khallas';
 
@@ -23,18 +24,74 @@ export class AppComponent {
   namespacePlaceholderEnabled = true;
   outputDirEnabled = true;
 
-  availableFiles = Module[]; 
+  availableFiles = []; 
+
+  current = 2;
+  max = 3;
+
+  radius: number = 80;
+  semicircle: boolean = false;
 
   run_khallas(): void {
-    for(var i: number = 0; i < 10; i++) {
-      this.availableFiles[i] = new Module();
-      this.availableFiles[i].finished_functions = i+1;
-      this.availableFiles[i].total_functions = i+i+3;
+    if (window.fs)
+    {
+      var localhost = "127.0.0.1"
+      var port = "3000"
+
+      var zmqServerExe = "/home/walid/Documents/python_shell_simple_com/zmq_client";
+      var zmqServerParams = ["--localhost="+localhost, "--port="+port];
+
+      var khallasExe = "/home/walid/Documents/tagainijisho/khallas_cli/khallas_gui.sh";
+      var khallasParams = ["--gui=true"];
+
+      if (window.fs.existsSync(zmqServerExe)) {
+        window.child_process.execFile(zmqServerExe, zmqServerParams, function(err, data) {
+          console.log("Receiving settings and executing.");
+          if(err){
+            console.error(err);
+            return;
+          }
+          console.log(data.toString());
+        });
+      }
+      else {
+        console.error(khallasExe + " couldn't be found.")
+      }
     }
-
-
+    else {
+      // demo mode for checking the view with ng serve
+      for(var i: number = 0; i < 10; i++) {
+        this.availableFiles[i] = new PyModule();
+        this.availableFiles[i].finished_functions = i+1;
+        this.availableFiles[i].total_functions = i+i+3;
+      }
+    }
   }
 
+  getOverlayStyle() {
+    let isSemi = this.semicircle;
+    let transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
+
+    return {
+      'top': isSemi ? 'auto' : '50%',
+      'bottom': isSemi ? '5%' : 'auto',
+      // 'left': '50%',
+      'margin-left': this.radius + 'px';
+      'transform': transform,
+      '-moz-transform': transform,
+      '-webkit-transform': transform,
+      'font-size': this.radius / 3.5 + 'px'
+    };
+    // return {
+    //   'top': isSemi ? 'auto' : '50%',
+    //   'bottom': isSemi ? '5%' : 'auto',
+    //   'left': '50%',
+    //   'transform': transform,
+    //   '-moz-transform': transform,
+    //   '-webkit-transform': transform,
+    //   'font-size': this.radius / 3.5 + 'px'
+    // };
+  }
 
   run_langform(): void {
     if (window.fs) {
@@ -141,6 +198,7 @@ export class AppComponent {
   }
 
   constructor() {
+    this.run_khallas();
     // using fs here will result in the whole component not being render-able in the ng-server
     if (window.fs)
     {
