@@ -14,6 +14,7 @@ module.exports = {
   externals: {
     fs: 'fs_module',
     path: 'path_module',
+    zeromq: 'zeromq_module',
     child_process: 'child_process'
   },
   // allow usage of __filename in dependencies ie: in bindings.js

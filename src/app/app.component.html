@@ -10,16 +10,33 @@
 <div id="app"></div>
 <br>
 <div class="wrapper" ng-controller="repeatController">
+  Overall progress
+  <div class="progress-wrapper">
+    <div class="current" [ngStyle]="getOverlayStyle(true,160)">
+      <p>{{ allCompletedFunctions() }}/{{ allFunctions() }}</p>
+      <p>{{ (allCompletedFunctions()/(allFunctions()) * 100).toFixed(1)}}%</p>
+    </div>
+    <round-progress 
+        [current]="allCompletedFunctions()"
+        [max]="allFunctions()" 
+        [radius]="160"
+        [rounded]="true"
+        ></round-progress>
+  </div>
+  <button mat-button matTooltip="Reload python files" id="types_script_run_khallas" color="primary" (click)='run_khallas()'>Reload</button>
+</div>
+<div class="wrapper" ng-controller="repeatController">
+
   <li *ngFor="let pyModule of availableFiles">
     {{pyModule.name}}
     <div class="progress-wrapper">
-      <div class="current" [ngStyle]="getOverlayStyle()">
-        <p>{{ pyModule.finished_functions }}/{{ pyModule.total_functions }}</p>
-        <p>{{ (pyModule.finished_functions/pyModule.total_functions * 100).toFixed(1)}}%</p>
+      <div class="current" [ngStyle]="getOverlayStyle(false,80)">
+        <p>{{ pyModule.completed_functions.length }}/{{pyModule.completed_functions.length + pyModule.incomplete_functions.length}}</p>
+        <p>{{ (pyModule.completed_functions.length/(pyModule.completed_functions.length+pyModule.incomplete_functions.length) * 100).toFixed(1)}}%</p>
       </div>
       <round-progress 
-          [current]="pyModule.finished_functions"
-          [max]="pyModule.total_functions" 
+          [current]="pyModule.completed_functions.length"
+          [max]="pyModule.completed_functions.length+pyModule.incomplete_functions.length" 
           [radius]="80"
           [rounded]="true"
           ></round-progress>

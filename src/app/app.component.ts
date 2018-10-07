@@ -1,10 +1,52 @@
 import { Component } from '@angular/core';
-// import { socket, Socket, types } from 'zmq';
+
+class PyFunction {
+  constructor(jsonObject?) {
+    if (jsonObject != null) {
+      this.id = jsonObject.id;
+      this.name = jsonObject.name;
+    }
+  }
+
+  id : number = -1;
+  name : string = "Untitled";
+}
 
 class PyModule {
+  constructor(jsonObject?) {
+    if (jsonObject != null) {
+      this.id = jsonObject.id;
+      this.name = jsonObject.name;
+      if (jsonObject.functions != null) {
+        for (var func of jsonObject.functions) {
+          this.completed_functions.push(new PyFunction(func));
+        }
+      }
+
+      if (jsonObject.incomplete_functions != null) {
+        for (var func of jsonObject.incomplete_functions) {
+          this.incomplete_functions.push(new PyFunction(func));
+        }
+      }
+    }
+  }
+
+  id : number = -1;
   name : string = "Untitled";
-  finished_functions : number = 0; 
-  total_functions : number = 0
+  completed_functions : PyFunction[] = []; 
+  incomplete_functions : PyFunction[] = [];
+}
+
+interface PyFunction {
+  id : number;
+  name : string;
+}
+
+interface PyModule {
+  id : number;
+  name : string;
+  completed_functions : PyFunction[]; 
+  incomplete_functions : PyFunction[];
 }
 
 @Component({
@@ -24,7 +66,7 @@ export class AppComponent {
   namespacePlaceholderEnabled = true;
   outputDirEnabled = true;
 
-  availableFiles = []; 
+  availableFiles : PyModule[] = []; 
 
   current = 2;
   max = 3;
@@ -35,17 +77,49 @@ export class AppComponent {
   run_khallas(): void {
     if (window.fs)
     {
+      // reset before refilling
+      this.availableFiles = []
+
       var localhost = "127.0.0.1"
       var port = "3000"
-
-      var zmqServerExe = "/home/walid/Documents/python_shell_simple_com/zmq_client";
-      var zmqServerParams = ["--localhost="+localhost, "--port="+port];
 
       var khallasExe = "/home/walid/Documents/tagainijisho/khallas_cli/khallas_gui.sh";
       var khallasParams = ["--gui=true"];
 
-      if (window.fs.existsSync(zmqServerExe)) {
-        window.child_process.execFile(zmqServerExe, zmqServerParams, function(err, data) {
+      var sock = window.zeromq.socket('req');
+      sock.connect('tcp://' + localhost + ':' + port);
+
+      // >:-3
+      var self = this;
+
+      sock.on('message', function(msg){
+        if (msg.toString() == "rep_no_more_pyfiles") {
+          // do we need to close from our side?
+          sock.close();
+        }
+        else {
+          console.log('work: %s', msg.toString());
+
+          // WORKAROUND: Change from bad json to quoated json
+          // even numbers are now quoted
+          // var msg2 = "{"+msg.toString().replace(/(['"])?([><a-z0-9A-Z_\.=+~\-\[\]]+)(['"])?:/g, '"$2": ').replace(/: *(['"])?([><a-z0-9A-Z_\.=+~\-\[\]]+)(['"])? */g, ': "$2"') + "}";
+          var msg2 = msg.toString();
+
+          // console.log("new msg: " + msg2);
+          var pyfile = new PyModule(JSON.parse(msg2).pyFile);
+          // console.log(pyfile);
+          self.availableFiles.push(pyfile);
+          sock.send("req_pyfile");
+        }
+      });
+
+      sock.send("init_req_pyfile");
+      // TODO only open if not opened and make it a master that closes after some time of inactivity ...
+      if (window.fs.existsSync(khallasExe)) {
+        window.child_process.execFile(khallasExe,
+                                      khallasParams,
+                                      {cwd: '/home/walid/Documents/tagainijisho/khallas_cli'},
+                                      function(err, data) {
           console.log("Receiving settings and executing.");
           if(err){
             console.error(err);
@@ -62,25 +136,48 @@ export class AppComponent {
       // demo mode for checking the view with ng serve
       for(var i: number = 0; i < 10; i++) {
         this.availableFiles[i] = new PyModule();
-        this.availableFiles[i].finished_functions = i+1;
-        this.availableFiles[i].total_functions = i+i+3;
+        for (var k: number = 0; k < i+1; k++){
+          this.availableFiles[i].completed_functions.push(new PyFunction());
+        }
+        for (var k: number = 0; k < i+i+3; k++){
+          this.availableFiles[i].incomplete_functions.push(new PyFunction());
+        }
       }
     }
   }
 
-  getOverlayStyle() {
-    let isSemi = this.semicircle;
+  allCompletedFunctions() {
+    var counter = 0;
+    for (var pyfile of this.availableFiles) {
+      counter += pyfile.completed_functions.length;
+    }
+
+    return counter;
+  }
+
+  allFunctions() {
+    var counter = 0;
+    for (var pyfile of this.availableFiles) {
+      counter += pyfile.incomplete_functions.length;
+      counter += pyfile.completed_functions.length;
+    }
+
+    return counter;
+  }
+
+  getOverlayStyle(semicircle, radius) {
+    let isSemi = semicircle;
     let transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
 
     return {
       'top': isSemi ? 'auto' : '50%',
       'bottom': isSemi ? '5%' : 'auto',
       // 'left': '50%',
-      'margin-left': this.radius + 'px';
+      'margin-left': radius + 'px',
       'transform': transform,
       '-moz-transform': transform,
       '-webkit-transform': transform,
-      'font-size': this.radius / 3.5 + 'px'
+      'font-size':   radius / 3.5 + 'px'
     };
     // return {
     //   'top': isSemi ? 'auto' : '50%',

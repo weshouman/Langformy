@@ -10,7 +10,8 @@
 
 module.exports = {
   node: {
-    fs: 'empty'
+    fs: 'empty',
+    zeromq: 'empty'
   },
   devtool: 'cheap-module-eval-source'
 };

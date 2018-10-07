@@ -28,6 +28,7 @@
     "angular-svg-round-progressbar": "^2.0.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.2.0",
+    "zeromq": "^5.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
@@ -54,7 +55,6 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2",
-    "zmq": "^2.15.3"
+    "typescript": "~2.9.2"
   }
 }
