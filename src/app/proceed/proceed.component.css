@@ -1,0 +1,39 @@
+.settings-container {
+  margin-left: 5%;
+}
+
+.setting-check {
+  padding-right: 10px;
+}
+
+.setting {
+  width: 90%;
+}
+
+.input-file-section {
+  margin-left: 5%;
+}
+
+.progress-wrapper {
+  position: relative;
+  margin: 20px auto;
+  font-size: 40px;
+}
+
+.current {
+  position: absolute;
+  color: #bbb;
+  font-weight: 100;
+  line-height: 1;
+  text-align: center;
+}
+
+.wrapper {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+}

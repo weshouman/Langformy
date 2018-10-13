@@ -1,14 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {LangformModule} from './langform/langform.module';
-import {ProceedModule} from './proceed/proceed.module';
-
-import { ProceedRoutingModule } from './proceed/proceed-routing.module';
-import { LangformRoutingModule } from './langform/langform-routing.module';
-import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { ProceedComponent } from './proceed.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTooltipModule, MatButtonModule} from '@angular/material';
@@ -19,7 +13,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
-    AppComponent
+    ProceedComponent
   ],
   imports: [
     BrowserModule,
@@ -36,15 +30,9 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
     RoundProgressModule,
 
-    ProceedModule,
-    LangformModule,
-
-    // root routing should always be last
-    ProceedRoutingModule,
-    LangformRoutingModule,
-    AppRoutingModule
+    RouterModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ProceedComponent]
 })
-export class AppModule { }
+export class ProceedModule { }

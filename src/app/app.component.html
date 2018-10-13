@@ -6,112 +6,12 @@
   {{title}} is still in alpha development ...
 </div>
 
-<a [routerLink]="['/']">khallas</a>
-<a [routerLink]="['langform']">langform</a>
+<a [routerLink]="['/']">Home</a>
+<br>
+<a [routerLink]="['proceed']">Proceed</a>
+<br>
+<a [routerLink]="['langform']">Langform</a>
 
   <h2 class="mat-h2">Set Settings and Run:</h2>
 <div id="app"></div>
-<br>
-<div class="wrapper" ng-controller="repeatController">
-  Overall progress
-  <div class="progress-wrapper">
-    <div class="current" [ngStyle]="getOverlayStyle(true,160)">
-      <p>{{ allCompletedFunctions() }}/{{ allFunctions() }}</p>
-      <p>{{ (allCompletedFunctions()/(allFunctions()) * 100).toFixed(1)}}%</p>
-    </div>
-    <round-progress 
-        [current]="allCompletedFunctions()"
-        [max]="allFunctions()" 
-        [radius]="160"
-        [rounded]="true"
-        ></round-progress>
-  </div>
-  <button mat-button matTooltip="Reload python files" id="types_script_run_khallas" color="primary" (click)='run_khallas()'>Reload</button>
-</div>
-<div class="wrapper" ng-controller="repeatController">
-
-  <li *ngFor="let pyModule of availableFiles">
-    {{pyModule.name}}
-    <div class="progress-wrapper">
-      <div class="current" [ngStyle]="getOverlayStyle(false,80)">
-        <p>{{ pyModule.completed_functions.length }}/{{pyModule.completed_functions.length + pyModule.incomplete_functions.length}}</p>
-        <p>{{ (pyModule.completed_functions.length/(pyModule.completed_functions.length+pyModule.incomplete_functions.length) * 100).toFixed(1)}}%</p>
-      </div>
-      <round-progress 
-          [current]="pyModule.completed_functions.length"
-          [max]="pyModule.completed_functions.length+pyModule.incomplete_functions.length" 
-          [radius]="80"
-          [rounded]="true"
-          ></round-progress>
-    </div>
-  </li>
-</div>
-<div class="settings-container">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <!-- Input Dir -->
-  <section class="input-dir-section">
-    <mat-checkbox class="setting-check" matTooltip="Overwrite Input Dir" type="checkbox" id="input_dir_check" [(ngModel)]="inputDirEnabled" MatCheckboxChange></mat-checkbox>
-
-    <mat-form-field class="setting">
-      <input matInput id="input_dir" placeholder="Input Dir" value="/home/walid/shared_on_wifi/xml/" [disabled]="!inputDirEnabled">
-      <mat-hint align="start">Dir where XML files exist: eg: /home/walid/shared_on_wifi/xml/</mat-hint>
-    </mat-form-field>
-  </section>
-  <br>
-
-  <!-- Input File -->
-  <section class="input-file-section">
-    <mat-checkbox class="setting-check" matTooltip="Overwrite Input File" type="checkbox" id="input_file_check" [(ngModel)]="inputFileEnabled" [disabled]="inputDirEnabled"></mat-checkbox>
-
-    <mat-form-field class="setting">
-      <input matInput id="input_file" placeholder="Input File" value="/home/walid/shared_on_wifi/xml/classEntry.xml" [disabled]="(!inputFileEnabled)||inputDirEnabled">
-      <mat-hint align="start">XML file: eg: /home/walid/shared_on_wifi/xml/classEntry.xml</mat-hint>
-    </mat-form-field>
-  </section>
-  <br>
-
-  <!-- Namespace Placeholder -->
-  <section class="setting-checkbox">
-    <mat-checkbox class="setting-check" matTooltip="Overwrite Namespace Placeholder" type="checkbox" id="namespace_placeholder_check" [(ngModel)]="namespacePlaceholderEnabled"></mat-checkbox>
-
-    <mat-form-field class="setting">
-      <input matInput id="namespace_placeholder" placeholder="Namespace placeholder" value="__ns__" [disabled]="!namespacePlaceholderEnabled">
-      <mat-hint align="start">eg: __ns__</mat-hint>
-    </mat-form-field>
-  </section>
-  <br>
-
-  <!-- Output Directory -->
-  <section class="setting-checkbox">
-    <mat-checkbox class="setting-check" matTooltip="Overwrite Output Dir" type="checkbox" id="output_dir_check" [(ngModel)]="outputDirEnabled"></mat-checkbox>
-
-    <mat-form-field class="setting">
-      <input matInput id="output_dir" placeholder="Output Dir" value="generated/" [disabled]="!outputDirEnabled">
-      <mat-hint align="start">Dir for generated files: eg: generated/ </mat-hint>
-    </mat-form-field>
-  </section>
-  <br>
-  <button mat-button matTooltip="Run Langform" id="run_langform" color="primary">Run</button>
-  <button mat-button matTooltip="Run Langform" id="types_script_run_langform_wip" color="primary" (click)='run_langform()'>New Run(WIP)</button>
-</div>
-
-<!-- <h3>Links</h3>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
- -->
 <router-outlet></router-outlet>
