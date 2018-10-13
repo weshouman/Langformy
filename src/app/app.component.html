@@ -6,11 +6,15 @@
   {{title}} is still in alpha development ...
 </div>
 
-<a [routerLink]="['/']">Home</a>
+<a [routerLink]="['/']">
+<button mat-button matTooltip="Go to home" id="home_button" color="primary" >Home</button>
+</a>
 <br>
-<a [routerLink]="['proceed']">Proceed</a>
+<a [routerLink]="['proceed']"><button mat-button matTooltip="Go to Proceed" id="proceed_button" color="primary" >Proceed</button>
+</a>
 <br>
-<a [routerLink]="['langform']">Langform</a>
+<a [routerLink]="['langform']"><button mat-button matTooltip="Go to Langform" id="langform_button" color="primary" >Langform</button>
+</a>
 
   <h2 class="mat-h2">Set Settings and Run:</h2>
 <div id="app"></div>

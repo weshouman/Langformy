@@ -16,10 +16,16 @@ import {MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTooltipModule,
 import {FormsModule} from '@angular/forms';
 
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+import { NotFoundService } from './services/not-found.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     LangformRoutingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NotFoundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

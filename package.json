@@ -27,7 +27,7 @@
     "@angular/router": "^6.1.0",
     "angular-svg-round-progressbar": "^2.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "~6.2.0",
+    "rxjs": "^6.2.2",
     "zeromq": "^5.0.0",
     "zone.js": "~0.8.26"
   },
