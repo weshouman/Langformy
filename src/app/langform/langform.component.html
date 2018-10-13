@@ -1,3 +1,4 @@
+<router-outlet></router-outlet>
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
@@ -9,51 +10,26 @@
 <a [routerLink]="['/']">khallas</a>
 <a [routerLink]="['langform']">langform</a>
 
+<!-- <section class="mat-typography"> -->
   <h2 class="mat-h2">Set Settings and Run:</h2>
+<!-- </section> -->
 <div id="app"></div>
-<br>
-<div class="wrapper" ng-controller="repeatController">
-  Overall progress
-  <div class="progress-wrapper">
-    <div class="current" [ngStyle]="getOverlayStyle(true,160)">
-      <p>{{ allCompletedFunctions() }}/{{ allFunctions() }}</p>
-      <p>{{ (allCompletedFunctions()/(allFunctions()) * 100).toFixed(1)}}%</p>
-    </div>
-    <round-progress 
-        [current]="allCompletedFunctions()"
-        [max]="allFunctions()" 
-        [radius]="160"
-        [rounded]="true"
-        ></round-progress>
-  </div>
-  <button mat-button matTooltip="Reload python files" id="types_script_run_khallas" color="primary" (click)='run_khallas()'>Reload</button>
-</div>
-<div class="wrapper" ng-controller="repeatController">
+<!-- TODO: use when webpack is enabled. -->
+<!-- <script src="dist/app.bundle.js"></script> -->
+<!-- App.js is where the functional app code exists -->
+<!-- <script src="../../app/app.js"></script> -->
 
-  <li *ngFor="let pyModule of availableFiles">
-    {{pyModule.name}}
-    <div class="progress-wrapper">
-      <div class="current" [ngStyle]="getOverlayStyle(false,80)">
-        <p>{{ pyModule.completed_functions.length }}/{{pyModule.completed_functions.length + pyModule.incomplete_functions.length}}</p>
-        <p>{{ (pyModule.completed_functions.length/(pyModule.completed_functions.length+pyModule.incomplete_functions.length) * 100).toFixed(1)}}%</p>
-      </div>
-      <round-progress 
-          [current]="pyModule.completed_functions.length"
-          [max]="pyModule.completed_functions.length+pyModule.incomplete_functions.length" 
-          [radius]="80"
-          [rounded]="true"
-          ></round-progress>
-    </div>
-  </li>
-</div>
+<!-- <script src="./app.js"></script> -->
+
+<!-- abc -->
+<!--   <script>
+    console.log("hello there");
+    console.log(`${__dirname}`);
+    alert( 'Hello, world !' );
+    alert( `${__dirname}` );
+  </script> -->
+<br>
 <div class="settings-container">
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
   <!-- Input Dir -->
   <section class="input-dir-section">
     <mat-checkbox class="setting-check" matTooltip="Overwrite Input Dir" type="checkbox" id="input_dir_check" [(ngModel)]="inputDirEnabled" MatCheckboxChange></mat-checkbox>
@@ -114,4 +90,3 @@
   </li>
 </ul>
  -->
-<router-outlet></router-outlet>
