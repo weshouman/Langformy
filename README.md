@@ -48,5 +48,7 @@ Useful resources for getting started with Electron+Angular (a project like that)
 
 [Angular CLI assets](https://kimsereyblog.blogspot.com/2017/09/manage-assets-and-static-files-with.html).  
 
+[High Quality look  with Bootstrap](https://medium.com/@beeman/tutorial-styling-angular-cli-v6-apps-with-bootstrap-8d4f8ea5adae)
+
 ### Example
 [Langformy](https://github.com/Walid-Shouman/langformy): An interface for [langform](https://github.com/Walid-Shouman/Langform) project.  

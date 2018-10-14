@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { NotFoundService } from './services/not-found.service';
+import { UiModule } from './ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NotFoundService } from './services/not-found.service';
     // root routing should always be last
     ProceedRoutingModule,
     LangformRoutingModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiModule
   ],
   providers: [NotFoundService],
   bootstrap: [AppComponent]

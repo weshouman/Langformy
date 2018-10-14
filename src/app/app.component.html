@@ -1,21 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  {{title}} is still in alpha development ...
-</div>
-
-<a [routerLink]="['/']">
-<button mat-button matTooltip="Go to home" id="home_button" color="primary" >Home</button>
-</a>
-<br>
-<a [routerLink]="['proceed']"><button mat-button matTooltip="Go to Proceed" id="proceed_button" color="primary" >Proceed</button>
-</a>
-<br>
-<a [routerLink]="['langform']"><button mat-button matTooltip="Go to Langform" id="langform_button" color="primary" >Langform</button>
-</a>
-
-  <h2 class="mat-h2">Set Settings and Run:</h2>
-<div id="app"></div>
-<router-outlet></router-outlet>
+<app-layout>
+  <div id="app"></div>
+  <router-outlet></router-outlet>
+</app-layout>
