@@ -21,12 +21,16 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { NotFoundService } from './services/not-found.service';
 import { UiModule } from './ui/ui.module';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
