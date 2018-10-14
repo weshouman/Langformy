@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 
 // Hint: don't define classes between the @Component and the class
 export class AppComponent {
-  title = 'khallas';
+  title = 'Procedure';
 }
