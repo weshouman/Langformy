@@ -1,6 +1,6 @@
 {
-  "name": "khallas",
-  "version": "0.1.0",
+  "name": "Langformy",
+  "version": "0.3.0",
   "main": "main.js",
   "scripts": {
     "ng": "ng",

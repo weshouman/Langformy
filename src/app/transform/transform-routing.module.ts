@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LangformComponent } from './langform.component';
+import { TransformComponent } from './transform.component';
 
 const routes: Routes = [
   {
-    path: 'langform',
+    path: 'transform',
     pathMatch: 'full',
-    component: LangformComponent,
+    component: TransformComponent,
     children: []
   }
 ];
@@ -16,4 +16,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class LangformRoutingModule { }
+export class TransformRoutingModule { }

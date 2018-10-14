@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 // import { socket, Socket, types } from 'zmq';
 
 @Component({
-  selector: 'langform-root',
-  templateUrl: './langform.component.html',
-  styleUrls: ['./langform.component.css']
+  selector: 'transform-root',
+  templateUrl: './transform.component.html',
+  styleUrls: ['./transform.component.css']
 })
-export class LangformComponent {
-  title = 'langformy';
+export class TransformComponent {
+  title = 'Transform';
+  description = "Transform a project from one language to another.";
 
   // my_socket: Socket = socket(types.req);
 
@@ -16,7 +17,7 @@ export class LangformComponent {
   namespacePlaceholderEnabled = true;
   outputDirEnabled = true;
 
-  run_langform(): void {
+  run_transform(): void {
     if (window.fs) {
       window.fs.writeFileSync('sample2.txt', 'my data');
     }
@@ -89,17 +90,17 @@ export class LangformComponent {
 
     var settingsArray: string[] = [];
 
-    settingsArray.push(LangformComponent.jsonify_setting('\"classXMLDir\":',            this.inputDirEnabled, valInputDir));
-    settingsArray.push(LangformComponent.jsonify_setting('\"classXML\":',               this.inputFileEnabled, valInputFile));
-    settingsArray.push(LangformComponent.jsonify_setting('\"NAMESPACE_PLACEHOLDER\":',  this.namespacePlaceholderEnabled, valNamespacePlaceholder));
-    settingsArray.push(LangformComponent.jsonify_setting('\"OUTPUT_DIR\":',             this.outputDirEnabled, valOutputDir));
+    settingsArray.push(TransformComponent.jsonify_setting('\"classXMLDir\":',            this.inputDirEnabled, valInputDir));
+    settingsArray.push(TransformComponent.jsonify_setting('\"classXML\":',               this.inputFileEnabled, valInputFile));
+    settingsArray.push(TransformComponent.jsonify_setting('\"NAMESPACE_PLACEHOLDER\":',  this.namespacePlaceholderEnabled, valNamespacePlaceholder));
+    settingsArray.push(TransformComponent.jsonify_setting('\"OUTPUT_DIR\":',             this.outputDirEnabled, valOutputDir));
 
     return settingsArray;
   }
 
   private static jsonify_setting(settingKey: string, isUsed: boolean, value: string): string {
     let setting = null;
-    let settingValue = LangformComponent.get_setting(isUsed, value);
+    let settingValue = TransformComponent.get_setting(isUsed, value);
 
     if (settingValue != null) {
       setting  = settingKey + settingValue;

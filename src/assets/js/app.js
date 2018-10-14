@@ -1,6 +1,7 @@
 'use strict'
 
 console.log("hello there!");
+console.log("app.js is disabled for now, enable by uncommenting main()");
 
 function getClassXMLDir(){
   // // Use a real directory
@@ -152,4 +153,4 @@ function main() {
   });
 };
 
-main();
+// main();

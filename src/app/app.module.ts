@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {LangformModule} from './langform/langform.module';
+import {TransformModule} from './transform/transform.module';
 import {ProceedModule} from './proceed/proceed.module';
 
 import { ProceedRoutingModule } from './proceed/proceed-routing.module';
-import { LangformRoutingModule } from './langform/langform-routing.module';
+import { TransformRoutingModule } from './transform/transform-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -48,11 +48,11 @@ import { ContactComponent } from './contact/contact.component';
     RoundProgressModule,
 
     ProceedModule,
-    LangformModule,
+    TransformModule,
 
     // root routing should always be last
     ProceedRoutingModule,
-    LangformRoutingModule,
+    TransformRoutingModule,
     AppRoutingModule,
     UiModule
   ],

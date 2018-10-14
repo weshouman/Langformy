@@ -57,7 +57,8 @@ interface PyModule {
 
 // Hint: don't define classes between the @Component and the class
 export class ProceedComponent {
-  title = 'khallas';
+  title = 'Proceed';
+  description = "Track the progress of the implemented files here.";
 
   // my_socket: Socket = socket(types.req);
 

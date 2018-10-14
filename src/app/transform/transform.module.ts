@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { RouterModule } from '@angular/router';
-import { LangformRoutingModule } from './langform-routing.module';
-import { LangformComponent } from './langform.component';
+import { TransformRoutingModule } from './transform-routing.module';
+import { TransformComponent } from './transform.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatCheckboxModule, MatTooltipModule, MatButtonModule} from '@angular/material';
@@ -12,7 +12,7 @@ import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    LangformComponent
+    TransformComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +26,10 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
 
     FormsModule,
-    LangformRoutingModule,
+    TransformRoutingModule,
     RouterModule
   ],
   providers: [],
-  bootstrap: [LangformComponent]
+  bootstrap: [TransformComponent]
 })
-export class LangformModule { }
+export class TransformModule { }
