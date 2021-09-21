@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "electron .",
-    "electron-build": "ng build --prod && electron ."
+    "electron-build": "ng build --stats-json --configuration=fast-production && electron ."
   },
   "private": true,
   "dependencies": {
