@@ -46,7 +46,7 @@
     "@types/zmq": "0.0.22",
     "angular-material": "^1.1.10",
     "codelyzer": "~4.3.0",
-    "electron": "^2.0.9",
+    "electron": "^2.0.18",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
